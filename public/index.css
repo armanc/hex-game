@@ -9,7 +9,7 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 html, body, #root {
@@ -27,37 +27,25 @@ html, body, #root {
   padding: 0;
 }
 
-.game_container{
+#game_container{
   position:relative;
-  height:100px;
+  height:100%;
   width:100%
-  background-color: #ddd;
+  background-color: #fff;
+  margin-top: 210px;
+  margin-left: 210px;
 }
-
-.dot {
-  background: #BBB;
-  position: absolute;
-  padding: 10px;
-  margin: -10px;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-}
-
-
 
 .hexagon {
-  margin-top: 220px;
-  margin-left: 220px;
   height: 80px;
   width: 48px;
   background: #ccc;
   position:absolute;
-  left:20px;
   box-sizing: border-box;
-
-
+  font-size: 15pt;
+  text-align: center;
 }
+
 .hexagon::before, .hexagon::after {
   content:"";
   position: absolute;
@@ -68,15 +56,70 @@ html, body, #root {
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent; 
 }
+
 .hexagon::before {
   left:-20px;
   border-right:20px solid #ccc; 
 }
+
 .hexagon::after {
   right:-20px;
   border-left:20px solid #ccc; 
 }
 
-.hexagon {
-  font-size: 8pt;
-}
+/* quick color gradient, used https://colordesigner.io/gradient-generator */
+
+/* Number 2 */
+.hexagon_color_2 {background: #fafa6e;}
+.hexagon_color_2::before {left:-20px;border-right:20px solid #fafa6e;}
+.hexagon_color_2::after {right:-20px;border-left:20px solid #fafa6e;}
+
+/* Number 4 */
+.hexagon_color_4 {background: #d7f171;}
+.hexagon_color_4::before {left:-20px;border-right:20px solid #d7f171;}
+.hexagon_color_4::after {right:-20px;border-left:20px solid #d7f171;}
+
+/* Number 8 */
+.hexagon_color_8 {background: #b5e877;}
+.hexagon_color_8::before {left:-20px;border-right:20px solid #b5e877;}
+.hexagon_color_8::after {right:-20px;border-left:20px solid #b5e877;}
+
+/* Number 16 */
+.hexagon_color_16 {background: #95dd7d;}
+.hexagon_color_16::before {left:-20px;border-right:20px solid #95dd7d;}
+.hexagon_color_16::after {right:-20px;border-left:20px solid #95dd7d;}
+
+/* Number 32 */
+.hexagon_color_32 {background: #77d183;}
+.hexagon_color_32::before {left:-20px;border-right:20px solid #77d183;}
+.hexagon_color_32::after {right:-20px;border-left:20px solid #77d183;}
+
+/* Number 64 */
+.hexagon_color_64 {background: #5bc489;}
+.hexagon_color_64::before {left:-20px;border-right:20px solid #5bc489;}
+.hexagon_color_64::after {right:-20px;border-left:20px solid #5bc489;}
+
+/* Number 128 */
+.hexagon_color_128 {background: #3fb78d;}
+.hexagon_color_128::before {left:-20px;border-right:20px solid #3fb78d;}
+.hexagon_color_128::after {right:-20px;border-left:20px solid #3fb78d;}
+
+/* Number 256 */
+.hexagon_color_256 {background: #23aa8f;}
+.hexagon_color_256::before {left:-20px;border-right:20px solid #23aa8f;}
+.hexagon_color_256::after {right:-20px;border-left:20px solid #23aa8f;}
+
+/* Number 512 */
+.hexagon_color_512 {background: #009c8f;}
+.hexagon_color_512::before {left:-20px;border-right:20px solid #009c8f;}
+.hexagon_color_512::after {right:-20px;border-left:20px solid #009c8f;}
+
+/* Number 1024 */
+.hexagon_color_1024 {background: #008d8c;}
+.hexagon_color_1024::before {left:-20px;border-right:20px solid #008d8c;}
+.hexagon_color_1024::after {right:-20px;border-left:20px solid #008d8c;}
+
+/* Number 2048 */
+.hexagon_color_2048 {background: #007f86;}
+.hexagon_color_2048::before {left:-20px;border-right:20px solid #007f86;}
+.hexagon_color_2048::after {right:-20px;border-left:20px solid #007f86;}

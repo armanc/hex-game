@@ -1,204 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
-      name="description"
-      content="Web site created using create-react-app"
+    name="description"
+    content="Web site created using create-react-app"
     />
     <link rel="stylesheet" href="index.css">
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+      <!--
+        manifest.json provides metadata used when your web app is installed on a
+        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+      -->
+      <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+      <!--
+        Notice the use of %PUBLIC_URL% in the tags above.
+        It will be replaced with the URL of the `public` folder during the build.
+        Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <p>Radius: </p><p id="radius"></p> 
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+        work correctly both with client-side routing and a non-root public URL.
+        Learn how to configure a non-root public URL by running `npm run build`.
+      -->
+      <title>React App</title>
+    </head>
+    <body>
+      
 
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div id="root">
+        <p>Welcome to Hex game. Press Q, W, E, A, S, D to play!</p>
+        <p>Radius: <span id="radius"></span> (pls change radius in code(2-5))</p>
+        <div id="game_container">
+          
+        </div>
+      </div>
 
+      <!--
+        This HTML file is a template.
+        If you open it directly in the browser, you will see an empty page.
 
-    <div class="game_container" data-status="playing">x
-      <div class="hexagon">
-    <div class="hex1"></div>
-    <div class="hex2"></div>
-    <div class="hex3"></div>
-    </div>
+        You can add webfonts, meta tags, or analytics to this file.
+        The build step will place the bundled scripts into the <body> tag.
 
-  </div>
+        To begin the development, run `npm start` or `yarn start`.
+        To create a production bundle, use `npm run build` or `yarn build`.
+      -->
 
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-
-    <script>
-      var game_status = "playing"; // vs game_over
-
-      var radius = 3;
-      var neg_radius = -Math.abs(radius);
-      document.getElementById("radius").innerHTML = radius;
-
-function hexGrid(edgeLength){
-        //var len = 2*edgeLength - 1, //2*3-1 = 5
-        var vx = Math.sin(Math.PI/3);
-        var vy = Math.cos(Math.PI/3);
-        // tl = edgeLength - 1, //5-1= 4
-        //br = 3*edgeLength - 2, // 15-2 = 13
-
-/*  for(var y = 0; y < len; ++y){
-    for(var x = 0; x < len; ++x){
-      //you may want to remove this condition
-      //to understand the code
-      if(x+y < tl || x+y >= br) continue; */
-
-      arr = []
-      for (let x = neg_radius+1; x < radius; x++) {
-        for (let y = neg_radius+1; y < radius; y++) {
-          for (let z = neg_radius+1; z < radius; z++) {
-            if (z==-x-y) {
-             
-
-                arr.push({
-                "x": x,
-                "y": y,
-                "z": z,
-                "value": 0
-              });
-
-   
-        } 
-      } 
-    }
-  }
-  return arr;
-}
-
-var cells = hexGrid(radius);
-draw_cells();
-
-//simple math to determine the corner-indices
-// var corners = [
-//   0,
-//   radius - 1,
-//   1 - radius + (cells.length >> 1),
-//   cells.length >> 1,
-//   radius - 1 + (cells.length >> 1),
-//   cells.length - radius,
-//   cells.length - 1
-// ];
-
-function draw_cells (){
-  cells.forEach((pos, i) => {
-
-    //visualize the grid
-    var node = document.createElement("div");
-    
-
-    node.className = "hexagon";
-
-    var vx = Math.sin(Math.PI/3);
-    var vy = Math.cos(Math.PI/3);
-    x_px= vx*arr[i].y ;
-    y_px= vy*arr[i].y + arr[i].x;
-    //scale the values before applying
-    node.style.top = y_px * 85 + "px";
-    node.style.left = x_px * 85 + "px";
-
-    document.body.appendChild(node);
-    node.appendChild(document.createTextNode("x: "+pos.x+"\n y: "+pos.y+"\n z: "+pos.z+"value: "+pos.value));
-
-    //node.appendChild(document.createTextNode(positions.x));
-
-
-  });
-}
-
-      // function cube_to_axial(cube):
-      //     var x = cube.x
-      //     var y = cube.y
-      //     return Hex(x, y)
-
-      // function axial_to_cube(hex):
-      //     var x = hex.x
-      //     var y = hex.y
-      //     var z = -x-y
-      //     return Cube(x, y, z)
-      update();
-function update(){
-var xhr = new XMLHttpRequest();
-
-xhr.open("POST", "https://hex2048szb9jquj-hex15.functions.fnc.fr-par.scw.cloud/3", true);
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.send(
-      {"x": 0, "y": 0, "z": 0, "value": 0,
-      "x": 1, "y": 2, "z": 0, "value": 0}
-);
-
-xhr.onload = function () {
-
-    var rnd_parsed = JSON.parse(xhr.response);
-
-    // console.log(rnd_parsed);
-    // console.log(arr);
-
-    var arr_empty_cells = [];
-   // arr_empty_cells.length=0;
-   // arr_empty_cells.unshift;
-
-    for(var i=0; i<arr.length; i++) {
-      if(arr[i].value == 0) {
-          arr_empty_cells.push({
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "value": 0
-              });
-          Object.assign(arr_empty_cells[i], arr[i]);
-        }
-    }
-
-console.log(arr_empty_cells)
-
-    for(var i=0; i<arr_empty_cells.length; i++){
-      for(var j=0; j<rnd_parsed.length; j++){
-        if(arr_empty_cells[i].x == rnd_parsed[j].x && arr_empty_cells[i].y == rnd_parsed[j].y && arr_empty_cells[i].z == rnd_parsed[j].z) {
-          Object.assign(arr[i], rnd_parsed[j]);
-          draw_cells();
-        }
-      }
-    }
-   }
-}
-
-
-
-
-
-
-    </script>
+    <script src="js.js"></script>
 
   </body>
-</html>
+  </html>
