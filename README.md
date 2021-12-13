@@ -13,7 +13,8 @@ What is required:
 - Have to receive data from the [server](#receiving-data-from-the-deployed-server) and render them correctly.
 - Have to handle appropriate keyboard keys according to the [rules](#directions-and-keys).
 - Have to change field data by clicking keyboard keys according to the [rules](#shifting-rules).
-- Deploy your implementation on the [surge.sh](http://surge.sh).
+- Deploy your implementation on the [surge.sh](http://surge.sh) or [netlify.com](https://www.netlify.com/).
+- Include a link to the deployed version in your README.md and send the link also to jmoisja@evolution.com or jkravale@evolution.com.
 - Have to work on the latest Google Chrome on the desktop (all other devices and browsers are up to you).
 - Have to setup game via [urlSearchParams](#search-params).
 - All other ideas, game features and controls, supported devices, and so on are optional.
